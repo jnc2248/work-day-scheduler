@@ -21,3 +21,23 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+var timeBlocks = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+var currentTime = dayjs().format("HH");
+
+function displayBg() {
+
+  for (var i = 0; i < timeBlocks.length; i++) {
+    var timeBlock = timeBlocks[i];
+
+    if (timeBlock == currentTime) {
+      document.querySelector("#hour-" + timeBlock).classList.add("present");
+    } else if (timeBlock > currentTime) {
+      document.querySelector("#hour-" + timeBlock).classList.add("future");
+    } else if (timeBlock < currentTime) {
+      document.querySelector("#hour-" + timeBlock).classList.add("past");
+    }
+  };
+};
+
+displayBg();
