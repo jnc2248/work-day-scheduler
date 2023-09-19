@@ -22,8 +22,14 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
 });
 
+var currentDay = dayjs().format("MMM D, YYYY, hh:mm:ss a");
+
 var timeBlocks = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 var currentTime = dayjs().format("HH");
+
+function displayTime() {
+  $("#currentDay").text(currentDay);
+};
 
 function displayBg() {
 
@@ -31,13 +37,14 @@ function displayBg() {
     var timeBlock = timeBlocks[i];
 
     if (timeBlock == currentTime) {
-      document.querySelector("#hour-" + timeBlock).classList.add("present");
+      $("#hour-" + timeBlock).addClass("present");
     } else if (timeBlock > currentTime) {
-      document.querySelector("#hour-" + timeBlock).classList.add("future");
+      $("#hour-" + timeBlock).addClass("future");
     } else if (timeBlock < currentTime) {
-      document.querySelector("#hour-" + timeBlock).classList.add("past");
+      $("#hour-" + timeBlock).addClass("past");
     }
   };
 };
 
 displayBg();
+setInterval(displayTime, 1000);
