@@ -50,9 +50,17 @@ function displayBg() {
   };
 };
 
-// function renderSchedule() {
-
-// };
+function renderSchedule() {
+  document.getElementById("nine").textContent = localStorage.getItem("nine");
+  document.getElementById("ten").textContent = localStorage.getItem("ten");
+  document.getElementById("eleven").textContent = localStorage.getItem("eleven");
+  document.getElementById("twelve").textContent = localStorage.getItem("twelve");
+  document.getElementById("thirteen").textContent = localStorage.getItem("thirteen");
+  document.getElementById("fourteen").textContent = localStorage.getItem("fourteen");
+  document.getElementById("fifteen").textContent = localStorage.getItem("fifteen");
+  document.getElementById("sixteen").textContent = localStorage.getItem("sixteen");
+  document.getElementById("seventeen").textContent = localStorage.getItem("seventeen");
+};
 
 function saveAll(ID, contents) {
   localStorage.setItem(ID, contents);
@@ -68,6 +76,7 @@ main.addEventListener("click" , function(event) {
   var saveButton = event.target;
   var selectedID = saveButton.previousElementSibling.id;
   var selectedValue = saveButton.previousElementSibling.value;
+  // console.log(selectedID);
 
   saveAll(selectedID, selectedValue);
 });
