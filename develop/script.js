@@ -7,6 +7,11 @@ var currentTime = dayjs().format("HH");
 
 var allSchedules = [];
 
+var newArray = document.createElement("arr");
+var test = "hello world";
+newArray.push(test);
+console.log(newArray);
+
 function displayTime() {
   $("#currentDay").text(currentDay);
 };
